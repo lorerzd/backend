@@ -33,6 +33,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `ordenes` WRITE;
 /*!40000 ALTER TABLE `ordenes` DISABLE KEYS */;
+INSERT INTO `ordenes` VALUES (1,1,353,2),(2,2,1400,2),(3,5,2325,6),(4,2,650,6),(5,1,165,3),(6,2,1660,3);
 /*!40000 ALTER TABLE `ordenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -42,6 +43,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `ordenes_has_productos` WRITE;
 /*!40000 ALTER TABLE `ordenes_has_productos` DISABLE KEYS */;
+INSERT INTO `ordenes_has_productos` VALUES (1,1,1),(2,2,1),(3,9,3),(4,3,1),(5,7,1),(6,4,1);
 /*!40000 ALTER TABLE `ordenes_has_productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,14 +66,6 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'Josue Vicente','Torres Olvera','josuetolvera@gmail.com','josue123','5538843826'),(2,'Jose Guillermo','Basto Arroyo','gbastoa17@gmail.com','guillermo123','9993700974'),(3,'Lorena','Rodríguez Dávila','lore.rdz2802@gmail.com','lorena123','3331032547'),(4,'Adrian Armando','Arguello Ramos','arguello.ramosadrian@gmail.com','adrian123','6861147413'),(5,'Ivan','Campos Ceron','ivancamposceron11@gmail.com','ivan123','5525168561'),(6,'Maria Concepcion','Gonzalez Barreda','maria.gonzalezbarrreda@gmail.com','maria123','3121007776'),(7,'Nancy Johanna','Villegas Pérez','marzo.2093@gmail.com','marzo123','2221151309');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'naom'
---
-
---
--- Dumping routines for database 'naom'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -82,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-19 23:58:51
+-- Dump completed on 2023-01-20 21:58:34
