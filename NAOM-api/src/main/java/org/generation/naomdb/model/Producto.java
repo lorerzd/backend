@@ -1,12 +1,15 @@
 package org.generation.naomdb.model;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,8 @@ public class Producto {
 	private int stock;
 	@Column(nullable=false)
 	private BigDecimal rating;
+	@OneToMany(mappedBy = "Productos") 
+	private Categorias categorias; 
 	
 	public Producto() {
 	}
