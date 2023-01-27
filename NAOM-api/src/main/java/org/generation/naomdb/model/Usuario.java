@@ -1,16 +1,13 @@
 package org.generation.naomdb.model;
 
 
-import java.util.List;
+import org.aspectj.weaver.ast.Or;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "usuario")
@@ -20,29 +17,47 @@ public class Usuario {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
+
 	@Column(nullable=false)
 	private String nombre;
+
 	@Column(nullable=false)
 	private String apellido;
+
 	@Column(nullable=false)
 	private String correo;
+
 	@Column(nullable=false)
 	private String contrasena;
+
 	@Column(nullable=false)
 	private String telefono;
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, orphanRemoval = false) 
-	private List<Ordenes> ordenes;
+
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "usuario_id")
+	private Collection<Ordenes> ordenes;
+
 	
 	public Usuario() {
 	}
-	
-	public Usuario(String nombre, String apellido, String correo, String contrasena, String telefono) {
-		super();
+
+	public Usuario(Long id, String nombre, String apellido, String correo, String contrasena, String telefono, Collection<Ordenes> ordenes) {
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.contrasena = contrasena;
 		this.telefono = telefono;
+		this.ordenes = ordenes;
+	}
+
+	public Collection<Ordenes> getOrdenes() {
+		return ordenes;
+	}
+
+	public void setOrdenes(Collection<Ordenes> ordenes) {
+		this.ordenes = ordenes;
 	}
 
 	public String getNombre() {
@@ -91,13 +106,14 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
-				+ ", contrasena=" + contrasena + ", telefono=" + telefono + "]";
+		return "Usuario{" +
+				"id=" + id +
+				", nombre='" + nombre + '\'' +
+				", apellido='" + apellido + '\'' +
+				", correo='" + correo + '\'' +
+				", contrasena='" + contrasena + '\'' +
+				", telefono='" + telefono + '\'' +
+				", ordenes=" + ordenes +
+				'}';
 	}
-	
-	
-
-
-
-	
 }

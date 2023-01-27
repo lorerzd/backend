@@ -1,51 +1,54 @@
 package org.generation.naomdb.model;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collection;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="ordenes")
+@Table(name = "ordenes")
 public class Ordenes {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
+
 	@Column(nullable=false)
 	private int cantidad;
-	@Column(name="precio_total", nullable=false)
-	private BigDecimal precioTotal;
-	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST) 
-	@JoinTable( name = "ordenes_has_products", joinColumns = 
-	@JoinColumn( name = "Ordenes_id", referencedColumnName = "id"), inverseJoinColumns = 
-	@JoinColumn( name = "Productos_id", referencedColumnName = "id")) 
-	private List<Producto> productos;
-	
-	@ManyToMany(fetch = FetchType.LAZY) @JoinColumn(name = "Usuario_id") 
-	private Usuario usuario; 
+
+	@Column(name="total_orden", nullable=false)
+	private BigDecimal totalOrden;
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(
+			name = "ordenes_has_productos",
+			joinColumns = @JoinColumn(name = "ordenes_id"),
+			inverseJoinColumns = @JoinColumn(name = "productos_id")
+	)
+	private Collection<Producto> productos;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+	private Usuario usuario;
+
 	
 	public Ordenes() {
 	}
 
-	public Ordenes(int cantidad, BigDecimal preciototal, List<Producto> productos, Usuario usuario) {
+	public Ordenes(Long id, int cantidad, BigDecimal totalOrden, Collection<Producto> productos) {
+		this.id = id;
 		this.cantidad = cantidad;
-		this.precioTotal = preciototal;
+		this.totalOrden = totalOrden;
 		this.productos = productos;
-		this.usuario = usuario;
+	}
+
+	public Collection<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Collection<Producto> productos) {
+		this.productos = productos;
 	}
 
 	public int getCantidad() {
@@ -56,28 +59,12 @@ public class Ordenes {
 		this.cantidad = cantidad;
 	}
 
-	public BigDecimal getPreciototal() {
-		return precioTotal;
+	public BigDecimal getTotalOrden() {
+		return totalOrden;
 	}
 
-	public void setPreciototal(BigDecimal preciototal) {
-		this.precioTotal = preciototal;
-	}
-
-	public List<Producto> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setTotalOrden(BigDecimal totalOrden) {
+		this.totalOrden = totalOrden;
 	}
 
 	public Long getId() {
@@ -86,12 +73,11 @@ public class Ordenes {
 
 	@Override
 	public String toString() {
-		return "Ordenes [id=" + id + ", cantidad=" + cantidad + ", preciototal=" + precioTotal + ", productos="
-				+ productos + ", usuario=" + usuario + "]";
+		return "Ordenes{" +
+				"id=" + id +
+				", cantidad=" + cantidad +
+				", totalOrden=" + totalOrden +
+				", productos=" + productos +
+				'}';
 	}
-	
-	
-	
-	
-	
 }

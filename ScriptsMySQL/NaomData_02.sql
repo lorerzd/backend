@@ -15,7 +15,6 @@ USE `naom`;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Dumping data for table `categorias`
@@ -43,7 +42,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `ordenes_has_productos` WRITE;
 /*!40000 ALTER TABLE `ordenes_has_productos` DISABLE KEYS */;
-INSERT INTO `ordenes_has_productos` VALUES (1,1,1),(2,2,1),(3,9,3),(4,3,1),(5,7,1),(6,4,1);
+INSERT INTO `ordenes_has_productos` VALUES (1,1),(2,2),(3,9),(4,3),(5,7),(6,4);
 /*!40000 ALTER TABLE `ordenes_has_productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,6 +65,9 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'Josue Vicente','Torres Olvera','josuetolvera@gmail.com','josue123','5538843826'),(2,'Jose Guillermo','Basto Arroyo','gbastoa17@gmail.com','guillermo123','9993700974'),(3,'Lorena','Rodríguez Dávila','lore.rdz2802@gmail.com','lorena123','3331032547'),(4,'Adrian Armando','Arguello Ramos','arguello.ramosadrian@gmail.com','adrian123','6861147413'),(5,'Ivan','Campos Ceron','ivancamposceron11@gmail.com','ivan123','5525168561'),(6,'Maria Concepcion','Gonzalez Barreda','maria.gonzalezbarrreda@gmail.com','maria123','3121007776'),(7,'Nancy Johanna','Villegas Pérez','marzo.2093@gmail.com','marzo123','2221151309');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

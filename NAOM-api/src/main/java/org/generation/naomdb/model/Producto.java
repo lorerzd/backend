@@ -1,45 +1,49 @@
 package org.generation.naomdb.model;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
 public class Producto {
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
+
 	@Column(nullable=false)
 	private String nombre;
-	@Column(nullable=false)
+
+	@Column(nullable=false, length = 400)
 	private String descripcion;
+
 	@Column(nullable=false)
 	private byte[] foto;
+
 	@Column(nullable=false)
 	private double precio;
+
 	@Column(nullable=false)
 	private int stock;
+
 	@Column(nullable=false)
 	private BigDecimal rating;
-	@OneToMany(mappedBy = "Productos") 
-	private Categorias categorias; 
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "categorias_id", referencedColumnName = "id")
+	private Categorias categorias;
+
 	
 	public Producto() {
 	}
 
-	public Producto(String nombre, String descripcion, byte[] foto, double precio, int stock,
-			BigDecimal rating) {
-		super();
+	public Producto(Long id, String nombre, String descripcion, byte[] foto, double precio, int stock, BigDecimal rating, Set<Categorias> categorias) {
+		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.foto = foto;
@@ -100,14 +104,24 @@ public class Producto {
 		return id;
 	}
 
+	public Categorias getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Categorias categorias) {
+		this.categorias = categorias;
+	}
+
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", foto="
-				+ ", precio=" + precio + ", stock=" + stock + ", rating=" + rating + "]";
+		return "Producto{" +
+				"id=" + id +
+				", nombre='" + nombre + '\'' +
+				", descripcion='" + descripcion + '\'' +
+				", foto=" + Arrays.toString(foto) +
+				", precio=" + precio +
+				", stock=" + stock +
+				", rating=" + rating +
+				'}';
 	}
-	
-	
-	
-	
-	
 }
