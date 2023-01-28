@@ -23,7 +23,7 @@ public class Producto {
 	private String descripcion;
 
 	@Column(nullable=false)
-	private byte[] foto;
+	private String foto;
 
 	@Column(nullable=false)
 	private double precio;
@@ -72,7 +72,7 @@ public class Producto {
 		return foto;
 	}
 
-	public void setFoto(byte[] foto) {
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
