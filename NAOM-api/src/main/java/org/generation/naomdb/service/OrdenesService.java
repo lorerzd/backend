@@ -28,37 +28,35 @@ public class OrdenesService {
 
     public List<Ordenes> getOrdenesFromUsuario(Long id) throws OrdenNotFound {
         Optional<List<Ordenes>> ordenesByUser = ordenesRepository.findOrdenesByUser(id);
-        if(ordenesByUser.isPresent()){
+        if (ordenesByUser.isPresent()) {
             return ordenesByUser.get();
         }
-        throw new OrdenNotFound("El usuario con id "+id+" no tiene ordenes");
+        throw new OrdenNotFound("El usuario con id " + id + " no tiene ordenes");
     }
 
     public Ordenes deleteOrden(Long id) throws OrdenNotFound {
         Optional<Ordenes> ordenesOpt = ordenesRepository.findById(id);
-        if(ordenesOpt.isPresent()){
+        if (ordenesOpt.isPresent()) {
             Ordenes ordenes = ordenesOpt.get();
             ordenesRepository.deleteById(id);
             return ordenes;
         }
-        throw new OrdenNotFound("Orden con el id "+id+" no se encuentra");
+        throw new OrdenNotFound("Orden con el id " + id + " no se encuentra");
     }
 
     public Ordenes updateOrden(Long id, int cantidad, BigDecimal totalOrden, List<Producto> productos) throws OrdenNotFound {
         Optional<Ordenes> ordenes = ordenesRepository.findById(id);
-        if(ordenes.isPresent()){
+        if (ordenes.isPresent()) {
             Ordenes ord = ordenes.get();
-            if (cantidad  != 0) ord.setCantidad(cantidad);
+            if (cantidad != 0) ord.setCantidad(cantidad);
             if (totalOrden != null) ord.setTotalOrden(totalOrden);
             if (productos != null) ord.setProductos(productos);
             ordenesRepository.save(ord);
             return ord;
         }
-        throw new OrdenNotFound("Orden con el id "+id+" no se encuentra");
+        throw new OrdenNotFound("Orden con el id " + id + " no se encuentra");
 
     }
-
-
 
 
 }

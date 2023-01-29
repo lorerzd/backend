@@ -70,7 +70,7 @@ public class UsuarioService {
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
             ordenes.setUsuario(usuario);
-            Collection<Ordenes> listaOrdenes = usuario.getOrdenes();
+            List<Ordenes> listaOrdenes = usuario.getOrdenes();
             listaOrdenes.add(ordenes);
             usuario.setOrdenes(listaOrdenes);
             usuarioRepository.save(usuario);

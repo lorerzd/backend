@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("api/orden")
 public class OrdenesController {
 
+    //FALTA TOKEN PARA IDENTIFICAR AL USUARIO Y MODIFICAR SUS ORDENES
+
     private final OrdenesService ordenesService;
 
     @Autowired
@@ -21,9 +23,9 @@ public class OrdenesController {
         this.ordenesService = ordenesService;
     }
 
-    @GetMapping(path = "all/{pathId}")
-    public List<Ordenes> getOrdenesFromUsuario(@PathVariable("pathId") Long id) throws OrdenNotFound {
-        return ordenesService.getOrdenesFromUsuario(id);
+    @GetMapping
+    public List<Ordenes> getOrdenesFromUsuario() throws OrdenNotFound {
+        return ordenesService.getOrdenesFromUsuario(2L);
     }
 
     @DeleteMapping(path = "{pathId}")
@@ -33,10 +35,10 @@ public class OrdenesController {
 
     @PutMapping(path = "{pathId}")
     public Ordenes updateOrden(@PathVariable("pathId") Long id,
-            @RequestParam(required=false) int cantidad,
-            @RequestParam(required=false) BigDecimal totalOrden,
-            @RequestBody(required=false) List<Producto> productos) throws OrdenNotFound {
-        return ordenesService.updateOrden(id,cantidad,totalOrden,productos);
+                               @RequestParam(required = false) int cantidad,
+                               @RequestParam(required = false) BigDecimal totalOrden,
+                               @RequestBody(required = false) List<Producto> productos) throws OrdenNotFound {
+        return ordenesService.updateOrden(id, cantidad, totalOrden, productos);
     }
 
 }

@@ -1,9 +1,11 @@
 package org.generation.naomdb.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -22,8 +24,12 @@ public class Ordenes {
 	@Column(name="total_orden")
 	private BigDecimal totalOrden;
 
-	@ManyToMany(mappedBy = "ordenes",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Collection<Producto> productos;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "ordenes_has_productos",
+			joinColumns = @JoinColumn(name = "productos_id"),
+			inverseJoinColumns = @JoinColumn(name = "ordenes_id"))
+	private List<Producto> productos;
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -33,26 +39,24 @@ public class Ordenes {
 	public Ordenes() {
 	}
 
-	public Ordenes(int cantidad, BigDecimal totalOrden, Collection<Producto> productos) {
+	public Ordenes(
+			int cantidad,
+			BigDecimal totalOrden,
+			List<Producto> productos,
+			Usuario usuario) {
+		this.id = id;
 		this.cantidad = cantidad;
 		this.totalOrden = totalOrden;
 		this.productos = productos;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-	public Collection<Producto> getProductos() {
-		return productos;
+	public Long getId() {
+		return id;
 	}
 
-	public void setProductos(Collection<Producto> productos) {
-		this.productos = productos;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public int getCantidad() {
@@ -71,12 +75,21 @@ public class Ordenes {
 		this.totalOrden = totalOrden;
 	}
 
-	public Long getId() {
-		return id;
+	public List<Producto> getProductos() {
+		return productos;
 	}
 
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	@Override
 	public String toString() {
@@ -85,6 +98,7 @@ public class Ordenes {
 				", cantidad=" + cantidad +
 				", totalOrden=" + totalOrden +
 				", productos=" + productos +
+				", usuario=" + usuario +
 				'}';
 	}
 }

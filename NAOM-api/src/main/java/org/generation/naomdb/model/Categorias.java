@@ -7,45 +7,45 @@ import java.util.Collection;
 @Table(name = "categorias")
 public class Categorias {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true,nullable = false)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
+    private Long id;
 
-	@Column(nullable = false)
-	private String tipoDeProducto;
+    @Column(nullable = false)
+    private String tipoDeProducto;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "categorias_id")
-	private Collection<Producto> productos;
-
-
-	public Categorias() {
-	}
-
-	public Categorias(Long id, String tipoDeProducto) {
-		this.id = id;
-		this.tipoDeProducto = tipoDeProducto;
-	}
-
-	public String getTipoDeProducto() {
-		return tipoDeProducto;
-	}
-
-	public void setTipoDeProducto(String tipoDeProducto) {
-		this.tipoDeProducto = tipoDeProducto;
-	}
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "categorias_id")
+    private Collection<Producto> productos;
 
 
-	public Long getId() {
-		return id;
-	}
+    public Categorias() {
+    }
 
-	@Override
-	public String toString() {
-		return "Categorias{" +
-				"id=" + id +
-				", tipoDeProducto='" + tipoDeProducto + '\'' +
-				'}';
-	}
+    public Categorias(Long id, String tipoDeProducto) {
+        this.id = id;
+        this.tipoDeProducto = tipoDeProducto;
+    }
+
+    public String getTipoDeProducto() {
+        return tipoDeProducto;
+    }
+
+    public void setTipoDeProducto(String tipoDeProducto) {
+        this.tipoDeProducto = tipoDeProducto;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Categorias{" +
+                "id=" + id +
+                ", tipoDeProducto='" + tipoDeProducto + '\'' +
+                '}';
+    }
 }

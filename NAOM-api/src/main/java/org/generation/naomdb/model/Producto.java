@@ -35,26 +35,46 @@ public class Producto {
     @Column(nullable = false)
     private BigDecimal rating;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinTable(
+            name = "ordenes_has_productos",
+            joinColumns = @JoinColumn(name = "productos_id"),
+            inverseJoinColumns = @JoinColumn(name = "ordenes_id"))
     private List<Ordenes> ordenes;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "categorias_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(
+            name = "categorias_id",
+            referencedColumnName = "id")
     private Categorias categorias;
 
 
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, String descripcion, String foto, double precio, int stock, BigDecimal rating, Set<Categorias> categorias) {
-        this.id = id;
+    public Producto(
+            String nombre,
+            String descripcion,
+            String foto,
+            double precio,
+            int stock,
+            BigDecimal rating,
+            List<Ordenes> ordenes,
+            Categorias categorias) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.foto = foto;
         this.precio = precio;
         this.stock = stock;
         this.rating = rating;
+        this.ordenes = ordenes;
+        this.categorias = categorias;
     }
+
+    public Long getId() {
+        return id;
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -104,8 +124,12 @@ public class Producto {
         this.rating = rating;
     }
 
-    public Long getId() {
-        return id;
+    public List<Ordenes> getOrdenes() {
+        return ordenes;
+    }
+
+    public void setOrdenes(List<Ordenes> ordenes) {
+        this.ordenes = ordenes;
     }
 
     public Categorias getCategorias() {
@@ -115,7 +139,6 @@ public class Producto {
     public void setCategorias(Categorias categorias) {
         this.categorias = categorias;
     }
-
 
     @Override
     public String toString() {
@@ -127,6 +150,7 @@ public class Producto {
                 ", precio=" + precio +
                 ", stock=" + stock +
                 ", rating=" + rating +
+                ", ordenes=" + ordenes +
                 ", categorias=" + categorias +
                 '}';
     }
