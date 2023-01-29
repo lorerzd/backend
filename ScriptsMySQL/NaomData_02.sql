@@ -37,13 +37,13 @@ INSERT INTO `ordenes` VALUES (1,1,353,2),(2,2,1400,2),(3,5,2325,6),(4,2,650,6),(
 UNLOCK TABLES;
 
 --
--- Dumping data for table `ordenes_has_productos`
+-- Dumping data for table `productos_ordenes`
 --
 
-LOCK TABLES `ordenes_has_productos` WRITE;
-/*!40000 ALTER TABLE `ordenes_has_productos` DISABLE KEYS */;
-INSERT INTO `ordenes_has_productos` VALUES (1,1),(2,2),(3,9),(4,3),(5,7),(6,4);
-/*!40000 ALTER TABLE `ordenes_has_productos` ENABLE KEYS */;
+LOCK TABLES `productos_ordenes` WRITE;
+/*!40000 ALTER TABLE `productos_ordenes` DISABLE KEYS */;
+INSERT INTO `productos_ordenes` VALUES (1,1),(2,2),(3,9),(4,3),(5,7),(6,4);
+/*!40000 ALTER TABLE `productos_ordenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

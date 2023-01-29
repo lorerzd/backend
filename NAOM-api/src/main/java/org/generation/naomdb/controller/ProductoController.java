@@ -1,5 +1,6 @@
 package org.generation.naomdb.controller;
 
+import org.generation.naomdb.exception.ProductoNotFound;
 import org.generation.naomdb.model.Producto;
 import org.generation.naomdb.repository.ProductoRepository;
 import org.generation.naomdb.service.ProductoService;
@@ -18,7 +19,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/productos")
+@RequestMapping("/api/producto")
 public class ProductoController {
 	private final ProductoService productoService;
 
@@ -31,6 +32,11 @@ public class ProductoController {
     public List<Producto> getAllProductos(){
     	return productoService.getAllProductos();
     }//getAllProductos
+
+    @GetMapping(path = "/all/{tipo}")
+    public List<Producto> getTipoProductos(@PathVariable("tipo") Long id) throws ProductoNotFound {
+        return productoService.getTipo(id);
+    }
     
     @GetMapping(path="{prodId}") //http://localhost:8080/api/productos/1
     public Producto getProducto(@PathVariable("prodId") Long id) {

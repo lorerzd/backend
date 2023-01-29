@@ -34,8 +34,7 @@ public class Usuario {
 	private String telefono;
 
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "usuario_id")
+	@OneToMany(mappedBy = "usuario",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Collection<Ordenes> ordenes;
 
 	
@@ -59,6 +58,8 @@ public class Usuario {
 	public void setOrdenes(Collection<Ordenes> ordenes) {
 		this.ordenes = ordenes;
 	}
+
+
 
 	public String getNombre() {
 		return nombre;

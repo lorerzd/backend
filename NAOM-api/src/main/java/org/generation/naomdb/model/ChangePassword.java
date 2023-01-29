@@ -1,4 +1,4 @@
-package org.generation.naomdb.controller;
+package org.generation.naomdb.model;
 
 public class ChangePassword {
 
