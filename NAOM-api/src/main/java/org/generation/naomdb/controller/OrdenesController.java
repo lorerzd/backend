@@ -1,5 +1,7 @@
 package org.generation.naomdb.controller;
 
+import org.generation.naomdb.helper.AuthorizationToken;
+import org.generation.naomdb.helper.JwtParser;
 import org.generation.naomdb.exception.OrdenNotFound;
 import org.generation.naomdb.model.Ordenes;
 import org.generation.naomdb.model.Producto;
@@ -7,6 +9,8 @@ import org.generation.naomdb.service.OrdenesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -23,22 +27,25 @@ public class OrdenesController {
         this.ordenesService = ordenesService;
     }
 
-    @GetMapping
-    public List<Ordenes> getOrdenesFromUsuario() throws OrdenNotFound {
-        return ordenesService.getOrdenesFromUsuario(2L);
-    }
+
 
     @DeleteMapping(path = "{pathId}")
-    public Ordenes deleteOrden(@PathVariable("pathId") Long id) throws OrdenNotFound {
-        return ordenesService.deleteOrden(id);
+    public Ordenes deleteOrden(HttpServletRequest request,
+                               @PathVariable("pathId") Long id) throws OrdenNotFound, ServletException {
+        String token = AuthorizationToken.getTokenFromHeader(request);
+        String subject = JwtParser.getEmailFromToken(token);
+        return ordenesService.deleteOrden(subject,id);
     }
 
     @PutMapping(path = "{pathId}")
-    public Ordenes updateOrden(@PathVariable("pathId") Long id,
+    public Ordenes updateOrden(HttpServletRequest request,
+                               @PathVariable("pathId") Long id,
                                @RequestParam(required = false) int cantidad,
                                @RequestParam(required = false) BigDecimal totalOrden,
-                               @RequestBody(required = false) List<Producto> productos) throws OrdenNotFound {
-        return ordenesService.updateOrden(id, cantidad, totalOrden, productos);
+                               @RequestBody(required = false) List<Producto> productos) throws OrdenNotFound, ServletException {
+        String token = AuthorizationToken.getTokenFromHeader(request);
+        String correo = JwtParser.getEmailFromToken(token);
+        return ordenesService.updateOrden(correo ,id, cantidad, totalOrden, productos);
     }
 
 }

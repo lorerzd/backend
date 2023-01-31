@@ -1,5 +1,7 @@
 package org.generation.naomdb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
@@ -35,6 +37,7 @@ public class Producto {
     @Column(nullable = false)
     private BigDecimal rating;
 
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinTable(
             name = "ordenes_has_productos",

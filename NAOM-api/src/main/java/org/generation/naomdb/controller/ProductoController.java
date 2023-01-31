@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/producto")
+@RequestMapping("/api/productos")
 public class ProductoController {
     private final ProductoService productoService;
 

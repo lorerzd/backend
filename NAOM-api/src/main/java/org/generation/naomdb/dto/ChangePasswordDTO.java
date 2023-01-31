@@ -1,16 +1,16 @@
-package org.generation.naomdb.model;
+package org.generation.naomdb.dto;
 
-public class ChangePassword {
+public class ChangePasswordDTO {
 
 	private String password;
 	private String newPassword;
-	public ChangePassword(String password, String newPassword) {
+	public ChangePasswordDTO(String password, String newPassword) {
 		super();
 		this.password = password;
 		this.newPassword = newPassword;
 	} // constructor
 	
-	public ChangePassword() {} // constructor vacio
+	public ChangePasswordDTO() {} // constructor vacio
 
 	public String getPassword() {
 		return password;

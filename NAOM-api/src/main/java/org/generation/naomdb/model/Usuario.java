@@ -1,6 +1,7 @@
 package org.generation.naomdb.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.aspectj.weaver.ast.Or;
 
 import java.util.Collection;
@@ -27,6 +28,7 @@ public class Usuario {
     @Column(nullable = false)
     private String correo;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String contrasena;
 

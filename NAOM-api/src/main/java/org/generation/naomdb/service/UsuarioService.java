@@ -30,27 +30,24 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     } // getAllUsuarios
 
-    public Usuario getUsuario(Long id) {
-        return usuarioRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("El Usuario con el id " + id + " no existe.")
+    public Usuario getUsuario(String email) {
+        return usuarioRepository.findByCorreo(email).orElseThrow(
+                () -> new IllegalArgumentException("El Usuario con el correo " + email + " no existe.")
         );
     }// getUsuario
 
-    public Usuario addUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
-    } // addUsuario
 
-    public Usuario deleteUsuario(Long id) {
-        Usuario tmp = null;
-        if (usuarioRepository.existsById(id)) {
-            tmp = usuarioRepository.findById(id).get();
-            usuarioRepository.deleteById(id);
+    public Usuario deleteUsuario(String email) throws UserNotFound {
+        Optional<Usuario> tmp = usuarioRepository.findByCorreo(email);
+        if (tmp.isPresent()) {
+            usuarioRepository.deleteByCorreo(email);
+            return tmp.get();
         } // if
-        return tmp;
+        throw new UserNotFound("Usuario con el email "+email+" no se ha encontrado");
     } // deleteUsuario
 
-    public Usuario updateUsuario(Long id, String password, String newPassword) throws Exception {
-        Optional<Usuario> tmp = usuarioRepository.findById(id);
+    public Usuario updateUsuario(String email, String password, String newPassword) throws Exception {
+        Optional<Usuario> tmp = usuarioRepository.findByCorreo(email);
         if (tmp.isPresent()) {
             Usuario usuario = tmp.get();
             if (usuario.getContrasena() == password) {
@@ -58,15 +55,14 @@ public class UsuarioService {
                 usuarioRepository.save(usuario);
                 return usuario;
             }
-
         } else {
-            System.out.println("Update - El Usuario con el id " + id + "no existe");
+            System.out.println("Update - El Usuario con el correo " + email + "no existe");
         } // if
         throw new Exception("Error al cambiar la contraseña");
     } // updateUsuario
 
-    public Usuario addOrden(Long id, Ordenes ordenes) throws UserNotFound {
-        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+    public Usuario addOrden(String email, Ordenes ordenes) throws UserNotFound {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreo(email);
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
             ordenes.setUsuario(usuario);
@@ -76,7 +72,7 @@ public class UsuarioService {
             usuarioRepository.save(usuario);
             return usuario;
         }
-        throw new UserNotFound("Usuario con id " + id + " no se ha encontrado");
+        throw new UserNotFound("Usuario con correo " + email + " no se ha encontrado");
     }
 
 }

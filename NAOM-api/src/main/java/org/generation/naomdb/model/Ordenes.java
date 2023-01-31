@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,6 +24,12 @@ public class Ordenes {
 
 	@Column(name="total_orden")
 	private BigDecimal totalOrden;
+
+	@Column(name = "estado")
+	private Estado estado;
+
+	@Column(name = "fecha")
+	private LocalDate fecha;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
