@@ -153,7 +153,6 @@ public class Producto {
                 ", precio=" + precio +
                 ", stock=" + stock +
                 ", rating=" + rating +
-                ", ordenes=" + ordenes +
                 ", categorias=" + categorias +
                 '}';
     }

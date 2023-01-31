@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `naom` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `naom`;
+CREATE DATABASE  IF NOT EXISTS `naomdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `naomdb`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: naom
+-- Host: 127.0.0.1    Database: naomdb
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `categorias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categorias` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `tipo_de_producto` varchar(200) NOT NULL,
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `tipo_de_producto` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,13 +39,16 @@ DROP TABLE IF EXISTS `ordenes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ordenes` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `cantidad` int NOT NULL,
-  `precio_total` decimal(10,0) NOT NULL,
-  `Usuario_id` int NOT NULL,
+  `total_orden` decimal(19,2) DEFAULT NULL,
+  `usuario_id` bigint DEFAULT NULL,
+  `estado` int DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_Ordenes_Usuario1_idx` (`Usuario_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  KEY `FKr8ns6jxkhp3upac8mbgfnmysc` (`usuario_id`),
+  CONSTRAINT `FKr8ns6jxkhp3upac8mbgfnmysc` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,13 +59,13 @@ DROP TABLE IF EXISTS `ordenes_has_productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ordenes_has_productos` (
-  `Ordenes_id` int NOT NULL,
-  `Productos_id` int NOT NULL,
-  `Productos_Categorias_id` int NOT NULL,
-  PRIMARY KEY (`Ordenes_id`,`Productos_id`,`Productos_Categorias_id`),
-  KEY `fk_Ordenes_has_Productos_Productos1_idx` (`Productos_id`,`Productos_Categorias_id`),
-  KEY `fk_Ordenes_has_Productos_Ordenes1_idx` (`Ordenes_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `productos_id` bigint NOT NULL,
+  `ordenes_id` bigint NOT NULL,
+  KEY `FK5d87hd18wwah1pi7tyyr8scym` (`ordenes_id`),
+  KEY `FKeuhs690502onif4ughomc6dca` (`productos_id`),
+  CONSTRAINT `FK5d87hd18wwah1pi7tyyr8scym` FOREIGN KEY (`ordenes_id`) REFERENCES `ordenes` (`id`),
+  CONSTRAINT `FKeuhs690502onif4ughomc6dca` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,17 +76,18 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `foto` blob,
-  `precio` decimal(10,0) NOT NULL,
-  `descripcion` varchar(300) NOT NULL,
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(400) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `precio` double NOT NULL,
+  `rating` decimal(19,2) NOT NULL,
   `stock` int NOT NULL,
-  `rating` decimal(10,0) NOT NULL,
-  `Categorias_id` int NOT NULL,
-  PRIMARY KEY (`id`,`Categorias_id`),
-  KEY `fk_Productos_Categorias_idx` (`Categorias_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+  `categorias_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKstfxoqd4ovfw6208wypspgf9n` (`categorias_id`),
+  CONSTRAINT `FKstfxoqd4ovfw6208wypspgf9n` FOREIGN KEY (`categorias_id`) REFERENCES `categorias` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,22 +98,22 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(45) NOT NULL,
-  `correo` varchar(50) NOT NULL,
-  `contraseña` varchar(45) NOT NULL,
-  `telefono` varchar(10) NOT NULL,
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(255) NOT NULL,
+  `contrasena` varchar(255) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `telefono` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping events for database 'naom'
+-- Dumping events for database 'naomdb'
 --
 
 --
--- Dumping routines for database 'naom'
+-- Dumping routines for database 'naomdb'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -121,4 +125,4 @@ CREATE TABLE `usuario` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-19 23:57:51
+-- Dump completed on 2023-01-31  8:52:15

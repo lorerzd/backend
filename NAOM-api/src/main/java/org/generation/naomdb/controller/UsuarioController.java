@@ -1,7 +1,6 @@
 package org.generation.naomdb.controller;
 
-import org.generation.naomdb.helper.AuthorizationToken;
-import org.generation.naomdb.helper.JwtParser;
+import org.generation.naomdb.helper.TokenHelper;
 import org.generation.naomdb.exception.UserNotFound;
 import org.generation.naomdb.dto.ChangePasswordDTO;
 import org.generation.naomdb.model.Ordenes;
@@ -31,30 +30,30 @@ public class UsuarioController {
 
     @GetMapping
     public Usuario getUsuario(HttpServletRequest request) throws ServletException {
-        String token = AuthorizationToken.getTokenFromHeader(request);
-        return usuarioService.getUsuario(JwtParser.getEmailFromToken(token));
+        String token = TokenHelper.getTokenFromHeader(request);
+        return usuarioService.getUsuario(TokenHelper.getEmailFromToken(token));
     } // getUsuario
 
     @DeleteMapping
     public Usuario deleteUsuario(HttpServletRequest request) throws ServletException, UserNotFound {
-        String token = AuthorizationToken.getTokenFromHeader(request);
-        return usuarioService.deleteUsuario(JwtParser.getEmailFromToken(token));
+        String token = TokenHelper.getTokenFromHeader(request);
+        return usuarioService.deleteUsuario(TokenHelper.getEmailFromToken(token));
     } // deleteUsuario
 
     @PutMapping // http://localhost:8080/api/usuarios/1
     public Usuario updateUsuario(HttpServletRequest request, @RequestBody ChangePasswordDTO changepassword) throws Exception {
-        String token = AuthorizationToken.getTokenFromHeader(request);
+        String token = TokenHelper.getTokenFromHeader(request);
         return usuarioService.updateUsuario(
-                JwtParser.getEmailFromToken(token),
+                TokenHelper.getEmailFromToken(token),
                 changepassword.getPassword(),
                 changepassword.getNewPassword());
     } // updateUsuario
 
     @PostMapping(path = "/orden")
     public Usuario addOrden(@RequestBody Ordenes ordenes, HttpServletRequest request) throws UserNotFound, ServletException {
-        String token = AuthorizationToken.getTokenFromHeader(request);
+        String token = TokenHelper.getTokenFromHeader(request);
         return usuarioService.addOrden(
-                JwtParser.getEmailFromToken(token),
+                TokenHelper.getEmailFromToken(token),
                 ordenes);
     }
 

@@ -10,6 +10,7 @@ import org.generation.naomdb.model.Usuario;
 import org.generation.naomdb.repository.OrdenesRepository;
 import org.generation.naomdb.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,9 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
     private final OrdenesRepository ordenesRepository;
+
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository, OrdenesRepository ordenesRepository) {
@@ -50,8 +54,8 @@ public class UsuarioService {
         Optional<Usuario> tmp = usuarioRepository.findByCorreo(email);
         if (tmp.isPresent()) {
             Usuario usuario = tmp.get();
-            if (usuario.getContrasena() == password) {
-                usuario.setContrasena(newPassword);
+            if (passwordEncoder.matches(password,usuario.getContrasena())){
+                usuario.setContrasena(passwordEncoder.encode(newPassword));
                 usuarioRepository.save(usuario);
                 return usuario;
             }

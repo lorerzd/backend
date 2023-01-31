@@ -1,7 +1,6 @@
 package org.generation.naomdb.controller;
 
-import org.generation.naomdb.helper.AuthorizationToken;
-import org.generation.naomdb.helper.JwtParser;
+import org.generation.naomdb.helper.TokenHelper;
 import org.generation.naomdb.exception.OrdenNotFound;
 import org.generation.naomdb.model.Ordenes;
 import org.generation.naomdb.model.Producto;
@@ -32,8 +31,8 @@ public class OrdenesController {
     @DeleteMapping(path = "{pathId}")
     public Ordenes deleteOrden(HttpServletRequest request,
                                @PathVariable("pathId") Long id) throws OrdenNotFound, ServletException {
-        String token = AuthorizationToken.getTokenFromHeader(request);
-        String subject = JwtParser.getEmailFromToken(token);
+        String token = TokenHelper.getTokenFromHeader(request);
+        String subject = TokenHelper.getEmailFromToken(token);
         return ordenesService.deleteOrden(subject,id);
     }
 
@@ -43,8 +42,8 @@ public class OrdenesController {
                                @RequestParam(required = false) int cantidad,
                                @RequestParam(required = false) BigDecimal totalOrden,
                                @RequestBody(required = false) List<Producto> productos) throws OrdenNotFound, ServletException {
-        String token = AuthorizationToken.getTokenFromHeader(request);
-        String correo = JwtParser.getEmailFromToken(token);
+        String token = TokenHelper.getTokenFromHeader(request);
+        String correo = TokenHelper.getEmailFromToken(token);
         return ordenesService.updateOrden(correo ,id, cantidad, totalOrden, productos);
     }
 

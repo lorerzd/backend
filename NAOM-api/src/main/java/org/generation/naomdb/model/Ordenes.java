@@ -82,6 +82,22 @@ public class Ordenes {
 		this.totalOrden = totalOrden;
 	}
 
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+
 	public List<Producto> getProductos() {
 		return productos;
 	}
@@ -104,8 +120,9 @@ public class Ordenes {
 				"id=" + id +
 				", cantidad=" + cantidad +
 				", totalOrden=" + totalOrden +
+				", estado=" + estado +
+				", fecha=" + fecha +
 				", productos=" + productos +
-				", usuario=" + usuario +
 				'}';
 	}
 }

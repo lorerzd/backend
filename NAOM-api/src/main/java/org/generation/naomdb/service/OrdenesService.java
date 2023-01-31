@@ -43,14 +43,15 @@ public class OrdenesService {
         Optional<Ordenes> ordenes = ordenesRepository.findById(id);
         if (ordenes.isPresent()) {
             Ordenes ord = ordenes.get();
-            if(ord.getUsuario().getCorreo() == correo){
+            if(ord.getUsuario().getCorreo().equals(correo)){
                 if (cantidad != 0) ord.setCantidad(cantidad);
                 if (totalOrden != null) ord.setTotalOrden(totalOrden);
                 if (productos != null) ord.setProductos(productos);
                 ordenesRepository.save(ord);
                 return ord;
+            }else {
+                throw new ServletException("You dont own this order");
             }
-            throw new ServletException("You dont own this order");
         }
         throw new OrdenNotFound("Orden con el id " + id + " no se encuentra");
     }
