@@ -63,7 +63,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Arguello Ramos','$2a$10$uMRDT.1f7jwaSN8oW9xQB.KN9/LHW0ZZbYQ354QJo7KjVYqzQyGaa','arguello.ramosadrian@gmail.com','Adrian Armando','6861147413'),(2,'Torres Olvera','$2a$10$h4.va7/uEzZ97.yFNA01BOf5HYaTqipux6cXQsoaoGL.kPEPiB6lm','josuetolvera@gmail.com','Josue Vicente','5538843826'),(3,'Basto Arroyo','$2a$10$cC9tBwpjN5QLDEmhKn2dLuUoLl3nrqgPowzAFxo/hm9WMqt.oC0ga','gbastoa17@gmail.com','Jose Guillermo','9993700974'),(4,'Rodriguez Davila','$2a$10$t0Nwt6U6uGJsiuErXRIl5OxNiMLTwJomt1vaJP1keWKIZaEZnSNc.','lore.rdz2802@gmail.com','Lorena','3331032547'),(5,'Campos Ceron','$2a$10$OGapjZ1t47BjtO4tiKa0d.l.Y.g69wJJ1C4eWwW3nBGI97hM6t9.O','ivancamposceron11@gmail.com','Ivan','5525168561'),(6,'Gonzalez Barreda','$2a$10$fg5j8zpRi.w8TktoGXDcIeaj/4/Vmhh8rhg0ReeapQP9.7q39KECu','maria.gonzalezbarrreda@gmail.com','Maria Concepcion','3121007776'),(7,'Villegas Perez','$2a$10$TG.gsZqsp67NhozVj9S/ue1kEfo92wuoT9c9TlWBr.VLgyrdwoIz2','marzo.2093@gmail.com','Nancy Johanna','2221151309');
+INSERT INTO `usuario` VALUES (1,'Arguello Ramos','$2a$10$uMRDT.1f7jwaSN8oW9xQB.KN9/LHW0ZZbYQ354QJo7KjVYqzQyGaa','arguello.ramosadrian@gmail.com','Adrian Armando','6861147413','V. Amazonas No. 159 S/N, Los Castillos, 37209, León, Guanajuato'),(2,'Torres Olvera','$2a$10$h4.va7/uEzZ97.yFNA01BOf5HYaTqipux6cXQsoaoGL.kPEPiB6lm','josuetolvera@gmail.com','Josue Vicente','5538843826','Mpio. De Calvillo No. 117, Ciudad Industrial, 20290, Aguascalientes, Aguascalientes'),(3,'Basto Arroyo','$2a$10$cC9tBwpjN5QLDEmhKn2dLuUoLl3nrqgPowzAFxo/hm9WMqt.oC0ga','gbastoa17@gmail.com','Jose Guillermo','9993700974','30 110 No. 23, Mexico Norte, 97128, Mérida, Yucatán'),(4,'Rodriguez Davila','$2a$10$t0Nwt6U6uGJsiuErXRIl5OxNiMLTwJomt1vaJP1keWKIZaEZnSNc.','lore.rdz2802@gmail.com','Lorena','3331032547','Carr Todos Los Santos Km 14.5 No. 2, Ejidal, Cabo San Lucas, Baja California'),(5,'Campos Ceron','$2a$10$OGapjZ1t47BjtO4tiKa0d.l.Y.g69wJJ1C4eWwW3nBGI97hM6t9.O','ivancamposceron11@gmail.com','Ivan','5525168561','30 110 No. 23, Mexico Norte, 97128, Mérida, Yucatán'),(6,'Gonzalez Barreda','$2a$10$fg5j8zpRi.w8TktoGXDcIeaj/4/Vmhh8rhg0ReeapQP9.7q39KECu','maria.gonzalezbarrreda@gmail.com','Maria Concepcion','3121007776','Carr Todos Los Santos Km 14.5 No. 2, Ejidal, Cabo San Lucas, Baja California'),(7,'Villegas Perez','$2a$10$TG.gsZqsp67NhozVj9S/ue1kEfo92wuoT9c9TlWBr.VLgyrdwoIz2','marzo.2093@gmail.com','Nancy Johanna','2221151309','Mpio. De Calvillo No. 117, Ciudad Industrial, 20290, Aguascalientes, Aguascalientes');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-31 16:39:59
+-- Dump completed on 2023-02-01 12:16:22

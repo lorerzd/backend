@@ -87,7 +87,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`id`),
   KEY `FKstfxoqd4ovfw6208wypspgf9n` (`categorias_id`),
   CONSTRAINT `FKstfxoqd4ovfw6208wypspgf9n` FOREIGN KEY (`categorias_id`) REFERENCES `categorias` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,6 +104,7 @@ CREATE TABLE `usuario` (
   `correo` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `telefono` varchar(255) NOT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -125,4 +126,4 @@ CREATE TABLE `usuario` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-31  8:52:15
+-- Dump completed on 2023-02-01 12:15:40
