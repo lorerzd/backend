@@ -20,7 +20,7 @@ public class Ordenes {
 	private Long id;
 
 	@Column(nullable=false)
-	private int cantidad;
+	private Integer cantidad;
 
 	@Column(name="total_orden")
 	private BigDecimal totalOrden;
@@ -66,11 +66,11 @@ public class Ordenes {
 		this.id = id;
 	}
 
-	public int getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 

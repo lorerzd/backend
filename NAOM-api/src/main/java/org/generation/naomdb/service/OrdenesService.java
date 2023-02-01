@@ -1,6 +1,7 @@
 package org.generation.naomdb.service;
 
 import org.generation.naomdb.exception.OrdenNotFound;
+import org.generation.naomdb.model.Estado;
 import org.generation.naomdb.model.Ordenes;
 import org.generation.naomdb.model.Producto;
 import org.generation.naomdb.repository.OrdenesRepository;
@@ -39,14 +40,20 @@ public class OrdenesService {
         throw new OrdenNotFound("Orden con el id " + id + " no se encuentra");
     }
 
-    public Ordenes updateOrden(String correo,Long id, int cantidad, BigDecimal totalOrden, List<Producto> productos) throws OrdenNotFound, ServletException {
+    public Ordenes updateOrden(String correo,
+                               Long id,
+                               Integer cantidad,
+                               BigDecimal totalOrden,
+                               List<Producto> productos,
+                               Estado estado) throws OrdenNotFound, ServletException {
         Optional<Ordenes> ordenes = ordenesRepository.findById(id);
         if (ordenes.isPresent()) {
             Ordenes ord = ordenes.get();
             if(ord.getUsuario().getCorreo().equals(correo)){
-                if (cantidad != 0) ord.setCantidad(cantidad);
+                if (cantidad != null) ord.setCantidad(cantidad);
                 if (totalOrden != null) ord.setTotalOrden(totalOrden);
                 if (productos != null) ord.setProductos(productos);
+                if (estado != null) ord.setEstado(estado);
                 ordenesRepository.save(ord);
                 return ord;
             }else {

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.generation.naomdb.exception.UserNotFound;
 import org.generation.naomdb.model.Ordenes;
+import org.generation.naomdb.model.Producto;
 import org.generation.naomdb.model.Usuario;
 import org.generation.naomdb.repository.OrdenesRepository;
 import org.generation.naomdb.repository.UsuarioRepository;

@@ -2,6 +2,7 @@ package org.generation.naomdb.controller;
 
 import org.generation.naomdb.helper.TokenHelper;
 import org.generation.naomdb.exception.OrdenNotFound;
+import org.generation.naomdb.model.Estado;
 import org.generation.naomdb.model.Ordenes;
 import org.generation.naomdb.model.Producto;
 import org.generation.naomdb.service.OrdenesService;
@@ -39,12 +40,14 @@ public class OrdenesController {
     @PutMapping(path = "{pathId}")
     public Ordenes updateOrden(HttpServletRequest request,
                                @PathVariable("pathId") Long id,
-                               @RequestParam(required = false) int cantidad,
+                               @RequestParam(required = false) Integer cantidad,
                                @RequestParam(required = false) BigDecimal totalOrden,
+                               @RequestParam(required = false) Estado estado,
                                @RequestBody(required = false) List<Producto> productos) throws OrdenNotFound, ServletException {
         String token = TokenHelper.getTokenFromHeader(request);
         String correo = TokenHelper.getEmailFromToken(token);
-        return ordenesService.updateOrden(correo ,id, cantidad, totalOrden, productos);
+        System.out.println(cantidad);
+        return ordenesService.updateOrden(correo ,id, cantidad, totalOrden, productos, estado);
     }
 
 }
