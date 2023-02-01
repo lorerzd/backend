@@ -35,6 +35,9 @@ public class Usuario {
     @Column(nullable = false)
     private String telefono;
 
+    @Column
+    private String direccion;
+
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Ordenes> ordenes;
