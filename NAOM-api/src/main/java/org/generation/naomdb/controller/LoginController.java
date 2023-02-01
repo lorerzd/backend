@@ -10,10 +10,7 @@ import org.generation.naomdb.dto.RegisterDTO;
 import org.generation.naomdb.model.Token;
 import org.generation.naomdb.model.Usuario;
 import org.generation.naomdb.service.LoginService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import java.util.Calendar;
@@ -21,6 +18,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("api/auth")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
     private final LoginService loginService;

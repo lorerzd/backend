@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/orden")
+@CrossOrigin(origins = "*")
 public class OrdenesController {
 
     //FALTA TOKEN PARA IDENTIFICAR AL USUARIO Y MODIFICAR SUS ORDENES

@@ -6,19 +6,14 @@ import org.generation.naomdb.dto.ChangePasswordDTO;
 import org.generation.naomdb.model.Ordenes;
 import org.generation.naomdb.model.Usuario;
 import org.generation.naomdb.service.UsuarioService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("api/usuario")
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;

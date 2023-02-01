@@ -20,7 +20,7 @@ public class JwtFilter extends GenericFilter {
         String authHeader = httpServletRequest.getHeader("Authorization");
         if (("POST".equals(httpServletRequest.getMethod())) ||
                 (("GET".equals(httpServletRequest.getMethod())) &&
-                        (!httpServletRequest.getRequestURI().contains("/api/productos/"))) ||
+                        (!httpServletRequest.getRequestURI().contains("/api/productos"))) ||
                 ("PUT".equals(httpServletRequest.getMethod())) ||
                 ("DELETE".equals(httpServletRequest.getMethod()))
         ) {

@@ -61,6 +61,14 @@ public class Usuario {
         this.ordenes = ordenes;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public Long getId() {
         return id;
     }
@@ -122,6 +130,7 @@ public class Usuario {
                 ", correo='" + correo + '\'' +
                 ", contrasena='" + contrasena + '\'' +
                 ", telefono='" + telefono + '\'' +
+                ", direccion='" + direccion + '\'' +
                 ", ordenes=" + ordenes +
                 '}';
     }
