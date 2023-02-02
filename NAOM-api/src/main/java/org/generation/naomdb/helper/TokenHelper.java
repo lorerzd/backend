@@ -1,5 +1,6 @@
 package org.generation.naomdb.helper;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 
 import javax.servlet.ServletException;
@@ -23,5 +24,10 @@ public class TokenHelper {
                 parseClaimsJws(token).
                 getBody().
                 getSubject();
+    }
+
+    public static String getUserRole(String token){
+        return Jwts.parser().setSigningKey(secretKey)
+                .parseClaimsJws(token).getBody().get("role").toString();
     }
 }

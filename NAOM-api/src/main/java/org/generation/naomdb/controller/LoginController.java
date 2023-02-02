@@ -30,9 +30,17 @@ public class LoginController {
     @PostMapping("/login")
     public Token logIn(@RequestBody LoginDTO loginDTO) throws UserNotFound, ServletException {
         if(loginService.logIn(loginDTO.getCorreo(),loginDTO.getContrasena())){
-            return new Token(generateToken(loginDTO.getCorreo()));
+            return new Token(generateToken(loginDTO.getCorreo(),false));
         }
         throw new ServletException("Error al intentar iniciar sesion");
+    }
+
+    @PostMapping("/login/w3b0s")
+    public Token logInAdmin(@RequestBody LoginDTO loginDTO) throws UserNotFound, ServletException {
+        if(loginService.logIn(loginDTO.getCorreo(),loginDTO.getContrasena())){
+            return new Token(generateToken(loginDTO.getCorreo(),true));
+        }
+        throw new ServletException("Error al intentar iniciar sesion como administrador");
     }
 
     @PostMapping("/register")
@@ -40,11 +48,17 @@ public class LoginController {
         return loginService.register(registerDTO);
     }
 
-    private String generateToken(String email) {
+    private String generateToken(String email, boolean isAdmin) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.HOUR, 12);
-        return Jwts.builder().setSubject(email).claim("role", "user")
-                .setIssuedAt(new Date()).setExpiration(calendar.getTime())
-                .signWith(SignatureAlgorithm.HS256, JwtFilter.secretKey).compact();
+        if(isAdmin){
+            return Jwts.builder().setSubject(email).claim("role", "admin")
+                    .setIssuedAt(new Date()).setExpiration(calendar.getTime())
+                    .signWith(SignatureAlgorithm.HS256, JwtFilter.secretKey).compact();
+        }else{
+            return Jwts.builder().setSubject(email).claim("role", "user")
+                    .setIssuedAt(new Date()).setExpiration(calendar.getTime())
+                    .signWith(SignatureAlgorithm.HS256, JwtFilter.secretKey).compact();
+        }
     }
 }

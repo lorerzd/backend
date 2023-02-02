@@ -46,8 +46,13 @@ public class ProductoService {
         return productoRepository.save(producto);
     }//addProducto
 
-    public Producto updateProducto(Long id, String nombre, String descripcion,
-                                   String foto, Double precio, int stock, BigDecimal rating) throws Exception {
+    public Producto updateProducto(Long id,
+                                   String nombre,
+                                   String descripcion,
+                                   String foto,
+                                   Double precio,
+                                   int stock,
+                                   BigDecimal rating) throws Exception {
         Optional<Producto> tmp = productoRepository.findById(id);
         if (tmp.isPresent()) {
             Producto producto = tmp.get();
