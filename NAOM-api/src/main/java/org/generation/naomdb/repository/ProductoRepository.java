@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long>{
 
-    @Query(nativeQuery = true, value = "SELECT * FROM Productos WHERE categorias_id = ?1")
+    @Query(nativeQuery = true, value = "SELECT * FROM productos WHERE categorias_id = ?1")
     Optional<List<Producto>> findTipoProducto(Long id);
 }
