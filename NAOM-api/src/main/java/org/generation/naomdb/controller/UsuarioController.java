@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("api/usuario")
@@ -36,12 +37,16 @@ public class UsuarioController {
     } // deleteUsuario
 
     @PutMapping // http://localhost:8080/api/usuarios/1
-    public Usuario updateUsuario(HttpServletRequest request, @RequestBody ChangePasswordDTO changepassword) throws Exception {
+    public Usuario updateUsuario(HttpServletRequest request,
+                                 @RequestParam(required = false) String nombre,
+                                 @RequestParam(required = false) String telefono,
+                                 @RequestParam(required = false) String actual,
+                                 @RequestParam(required = false) String nueva,
+                                 @RequestParam(required = false) String direccion) throws ServletException, UserNotFound {
         String token = TokenHelper.getTokenFromHeader(request);
         return usuarioService.updateUsuario(
                 TokenHelper.getEmailFromToken(token),
-                changepassword.getPassword(),
-                changepassword.getNewPassword());
+                nombre,telefono,actual,nueva,direccion);
     } // updateUsuario
 
     @PostMapping(path = "/orden")

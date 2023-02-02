@@ -51,20 +51,24 @@ public class UsuarioService {
         throw new UserNotFound("Usuario con el email "+email+" no se ha encontrado");
     } // deleteUsuario
 
-    public Usuario updateUsuario(String email, String password, String newPassword) throws Exception {
-        Optional<Usuario> tmp = usuarioRepository.findByCorreo(email);
+    public Usuario updateUsuario(String correo,String nombre, String telefono, String actual, String nueva, String direccion) throws UserNotFound {
+        Optional<Usuario> tmp = usuarioRepository.findByCorreo(correo);
         if (tmp.isPresent()) {
             Usuario usuario = tmp.get();
-            if (passwordEncoder.matches(password,usuario.getContrasena())){
-                usuario.setContrasena(passwordEncoder.encode(newPassword));
-                usuarioRepository.save(usuario);
-                return usuario;
+            if(correo != null) usuario.setCorreo(correo);
+            if(nombre != null) usuario.setNombre(nombre);
+            if(telefono != null) usuario.setTelefono(telefono);
+            if(actual != null && nueva != null){
+                if(passwordEncoder.matches(actual,usuario.getContrasena())){
+                    usuario.setContrasena(passwordEncoder.encode(nueva));
+                }
             }
-        } else {
-            System.out.println("Update - El Usuario con el correo " + email + "no existe");
-        } // if
-        throw new Exception("Error al cambiar la contraseña");
-    } // updateUsuario
+            if(direccion != null) usuario.setDireccion(direccion);
+            usuarioRepository.save(usuario);
+            return usuario;
+        }
+        throw new UserNotFound("No se ha encontrado el usuario con el correo "+correo);
+    }
 
     public Usuario addOrden(String email, Ordenes ordenes) throws UserNotFound {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreo(email);

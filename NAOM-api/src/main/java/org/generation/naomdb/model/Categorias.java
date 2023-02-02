@@ -17,7 +17,7 @@ public class Categorias {
     @Column(nullable = false)
     private String tipoDeProducto;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "categorias_id")
     private Collection<Producto> productos;
 
