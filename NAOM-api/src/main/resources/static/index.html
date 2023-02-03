@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAOM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <script src="https://kit.fontawesome.com/1f6a29c5b3.js" defer crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="/css/novedades.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-xl bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="margin-right: 0;" href="/"><img src="./Fotos_pagina/Logo_NAOM.png"
+          alt=""></a>
+          <div class="row" id="user-wrapper">
+            <div class="col-4">
+            <a class="iconNav" href="../HTML/carrito.html"><img src="../Fotos_pagina/Carrito.png" alt="" width="35px" id="cartIcon"></a>
+          </div>
+            <div class="dropdown col-4">
+                  <a class="iconNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="./Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon">
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item toggleUserView" href="../HTML/logIn.html">Inicia Sesión</a></li>
+                    <li><a class="dropdown-item toggleUserView" href="../HTML/registro.html">Registrate</a></li>
+                  </ul>
+          </div>
+            <!--<a class="iconNav" href="../html/registro.html"><img src="../Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon"></a>-->
+          </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/maquillaje.html">Maquillaje</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/cuidadofacial.html">Cuidado facial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/brochas.html">Brochas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/accesorios.html">Accesorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/contact.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/aboutus.html">Nosotros</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" id="searchBar" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-dark" id="searchButton" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+  <!--<div id="banner"></div>-->
+  <!--iniciocarrusel-->
+  
+  <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="/Fotos_pagina/pink-makeup-1611776547 (1).png" class="d-block w-100 c-img" alt="Slide1">
+        <div class="carousel-caption">
+          <h1>¡Espera nuestras ofertas!</h1>
+          <p>¡Te sorprenderás!</p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="./Fotos_pagina/banner-maquillaje-mujer.jpg" class="d-block w-100 c-img" alt="slide2">
+        <div class="carousel-caption">
+          <h1>Somos la mejor tienda de maquillaje en México</h1>
+          <p>¡Llegamos para quedarnos!</p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="./Fotos_pagina/skin-makeup.jpg" class="d-block w-100 c-img" alt="slide3">
+        <div class="carousel-caption">
+          <h1>Encuentra todo lo que necesites para lucir perfecta</h1>
+          <p>¡Tu mejor opción!</p>
+        </div>
+        <div class="credits">Imagen de <a href="https://www.freepik.es/foto-gratis/surtido-contenedores-base-vista-superior_29068614.htm#from_view=detail_serie">Freepik</a></div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Productos -->
+  <div class="products-carousel">
+    <h1 class="text-center">NOVEDADES</h1>
+    <div class="products-container">
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="list-items">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+    <!-- </div>
+  <img id="imagen"></img>
+  <div id="list-items">
+  </div> -->
+
+  <footer class=" text-center text-white" style="background-color:black;">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <span>Síguenos en redes</span>
+          <!-- Whatsapp -->
+          <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" title="Mándame un mensaje" role="button" data-mdb-ripple-color="dark"
+            style="padding: 0;"><img src="../Fotos_pagina/Whats.png" width="40px" style="color: white;" alt=""></i></a>
+          <!-- Instagram -->
+          <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/natalia_omakeup/" target="_blank" title="Sígueme en Instagram" role="button" data-mdb-ripple-color="dark"
+            style="padding: 0;"><img src="../Fotos_pagina/IG.png" alt="" width="40px" height="40px"></i></a>
+          <br>
+
+        <!-- METODOS DE PAGO -->
+        <span>Métodos de pago</span>
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"
+          style="padding: 0;"><img src="../Fotos_pagina/tarjetas1.png" alt="" width="200px"></i></a>
+      </section>
+    </div>
+    <div class="text-center text-dark pb-2" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright NAOM (WebOs) - 2023. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+  <script src="../js/navbar.js"></script>
+  <script src="/js/main.js" type="module"></script>
+</body>
+
+</html>

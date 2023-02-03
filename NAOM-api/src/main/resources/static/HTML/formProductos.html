@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAOM-Nosotros</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/formProducts.css">
+  <link rel="stylesheet" href="../css/aboutus.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-xl bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="margin-right: 0;" href="../index.html"><img src="../Fotos_pagina/Logo_NAOM.png"
+          alt="" width="150px"></a>
+      <div class="row" id="user-wrapper">
+        <div class="col-4">
+          <a class="iconNav" href="../HTML/carrito.html"><img src="../Fotos_pagina/Carrito.png" alt="" width="35px"
+              id="cartIcon"></a>
+        </div>
+        <div class="dropdown col-4">
+          <a class="iconNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon">
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item toggleUserView" href="../HTML/logIn.html">Inicia Sesión</a></li>
+            <li><a class="dropdown-item toggleUserView" href="../HTML/registro.html">Registrate</a></li>
+          </ul>
+        </div>
+        <!--<a class="iconNav" href="../html/registro.html"><img src="../Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon"></a>-->
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./maquillaje.html">Maquillaje</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cuidadofacial.html">Cuidado facial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./brochas.html">Brochas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./accesorios.html">Accesorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">Nosotros</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" id="searchBar" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-dark" id="searchBar" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <div class="mx-2 my-4" id="formulario">
+    <!-- Titulo formulario -->
+    <h1 class="my-5 text-center">Agregar productos</h1>
+    <!-- Formulario -->
+    <div class="alert alert-success" role="alert" style="display: none;" id="alertSuccess">
+    </div>
+    <form class="row justify-content-around" action="" id="form">
+      <div class="col-lg-7 form-outline text-center">
+        <label class="form-label" for="form0"></label>
+        <img id="prevImg" width="200px" src="../Fotos_pagina/photo-camera.png" />
+        <p class="mt-1">La imagen debe de tener una altura y ancho iguales. Ej. 160x160</p>
+        <button id="upload_widget" class="cloudinary-button">Subir foto</button>
+    
+        <div class="alertRegistro" id="alertFile" style="display: none;">Debe de contener una foto</div>
+      </div>
+      <div class="col-lg-7 form-outline">
+        <label class="form-label" for="form1">Nombre del producto</label>
+        <input type="text" name="name" id="form1" class="form-control" />
+        <div class="alertRegistro" id="alertProductName" style="display: none;">El nombre debe contener entre 3-20
+          caracteres</div>
+      </div>
+      <div class="col-lg-7 form-outline">
+        <label class="form-label" for="form2">Precio</label>
+        <input type="number" step="0.01" name="price" id="form2" class="form-control" />
+        <div class="alertRegistro" id="alertPrice" style="display: none;">Ingresa un precio válido</div>
+      </div>
+      <div class="form-outline col-lg-7">
+        <label class="form-label" for="form3">Descripción</label>
+        <input type="text" name="description" id="form3" class="form-control" />
+        <div class="alertRegistro" id="alertDescription" style="display: none;">La descripción debe contener más de 15
+          caracteres</div>
+      </div>
+      <div class="form-outline col-lg-7">
+        <label class="form-label" for="form4">Productos disponibles</label>
+        <input type="number" step="0.01" name="stock" id="form4" class="form-control" />
+        <div class="alertRegistro" id="alertAvailable" style="display: none;">Ingresa productos disponibles</div>
+      </div>
+      <div class="form-outline col-lg-7">
+        <label class="form-label" for="form5">Categoría</label>
+        <select class="form-select" aria-label="Default select example" id="selectorCategoria">
+          <option selected>Selecciona una opción</option>
+          <option value="1">1.- Maquillaje</option>
+          <option value="2">2.- Brochas</option>
+          <option value="3">3.- Cuidado Facial</option>
+          <option value="4">4.- Accesorios</option>
+        </select>
+        <!-- <input type="number" step="0.01" name="stock" id="form4" class="form-control" /> -->
+        <div class="alertRegistro" id="alertAvailable" style="display: none;">Ingresa productos disponibles</div>
+      </div>
+      <div class="form-outline mb-4 col-lg-7" id="buttons">
+        <button type="submit" class="mx-2" id="btnProduct">Agregar producto</button>
+        <button type="button" class="mx-2" id="btnProductCancel">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+ <!-----MODAL------>
+ <div class="modal" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-around">
+        <h5 class="modal-title">Productos</h5>
+        <button type="button" id="CloseModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>¿Desea agregar este producto?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCerrar" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" id="btnConfirm">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-around">
+  <h2 class="text-center my-5">Lista de productos</h2>
+  <table id="tablaProductos" class="table table-borderless table-striped" style="width: 60rem; align-items: center;">
+    <thead>
+      <tr> 
+        <th scope="col">#ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tableRow">
+    </tbody>
+  </table>
+</div>
+
+  <footer class="text-center text-white" style="background-color:black;">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <span>Síguenos en redes</span>
+        <!-- Whatsapp -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" title="Mándame un mensaje"
+          role="button" data-mdb-ripple-color="dark" style="padding: 0;"><img src="../Fotos_pagina/Whats.png"
+            width="40px" style="color: white;" alt=""></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/natalia_omakeup/"
+          target="_blank" title="Sígueme en Instagram" role="button" data-mdb-ripple-color="dark"
+          style="padding: 0;"><img src="../Fotos_pagina/IG.png" alt="" width="40px" height="40px"></i></a>
+        <br>
+        <br>
+        <span>Métodos de pago</span>
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"
+          style="padding: 0;"><img src="../Fotos_pagina/tarjetas1.png" alt="" width="200px"></i></a>
+
+      </section>
+    </div>
+    <div class="text-center text-dark pb-2" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright NAOM (WebOs) - 2023. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="../js/navbar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script type="module" src="../js/formProducts.js"></script>
+  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script> 
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+@font-face {
+  font-family: Exo;
+  src: url(../fonts/static/Exo-SemiBold.ttf);
+}
+
+body {
+  font-family: "Exo", sans-serif;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  margin: 1rem 0;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.box .form-control {
+  border-radius: 0;
+  border: 1px black solid;
+}
+
+#banner {
+  display: flex;
+  background-image: url("/Fotos_pagina/pink-makeup.png");
+  background-size: cover;
+  min-height: 200px;
+  background-position: center;
+}
+
+#btnContactoEnviar {
+  margin-top: 1rem;
+  background-color: #efcfcf;
+  color: #1c315e;
+  border-radius: 5%;
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+#btnContactoEnviar:hover {
+  background-color: white;
+  border: 2px solid #efcfcf;
+  padding: 0.4rem 0.9rem;
+}
+
+.alertRegistro {
+  color: red;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.box {
+  margin-bottom: 2rem;
+}
+
+.box:first-child {
+  padding-top: 2rem;
+}
+
+#current-page {
+  border-bottom: 5px solid #efcfcf;
+  border-radius: 8px;
+}
+
+@media (min-width: 320px) {
+  .row {
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 768px) {
+  .row {
+    font-size: 1.1em;
+  }
+}

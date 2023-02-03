@@ -1,0 +1,67 @@
+@font-face {
+  font-family: Exo;
+  src: url(../fonts/static/Exo-SemiBold.ttf);
+}
+
+body {
+  font-family: Exo;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  margin: 1rem 0;
+}
+
+.card {
+  width: 24rem;
+  min-height: 40rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+}
+
+.card-button {
+  position: absolute;
+  bottom: 0.8em;
+}
+
+.card-title {
+  margin: 0px;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.card-icons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+#cardRow {
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+}
+
+.btn-dark:hover {
+  border: 2px solid #212529;
+  background-color: white;
+  color: #212529;
+}
+
+#descripcion {
+  margin-top: 1rem;
+}
+
+#current-page {
+  border-bottom: 5px solid #efcfcf;
+  border-radius: 8px;
+}

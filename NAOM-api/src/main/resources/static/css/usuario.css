@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Exo;
+    src: url(../fonts/static/Exo-SemiBold.ttf);
+  }
+body{
+  font-family:Exo;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  
+}
+.table
+{
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 6rem;
+    border: rgb(214, 209, 209) 1px solid;
+    
+} 
+main {
+    margin: 1rem 0;
+}
+.textpcard
+{
+    text-align: left;
+}

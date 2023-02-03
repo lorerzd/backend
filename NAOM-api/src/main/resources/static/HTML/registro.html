@@ -1,0 +1,170 @@
+ <!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAOM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/registro.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-xl bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="margin-right: 0;" href="/"><img src="../Fotos_pagina/Logo_NAOM.png"
+          alt="" width="150px"></a>
+      <div class="row" id="user-wrapper">
+        <div class="col-4">
+          <a class="iconNav" href="../HTML/carrito.html"><img src="../Fotos_pagina/Carrito.png" alt="" width="35px"
+              id="cartIcon"></a>
+        </div>
+        <div class="dropdown col-4">
+          <a class="iconNav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon">
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item toggleUserView" href="../HTML/logIn.html">Inicia Sesión</a></li>
+            <li><a class="dropdown-item toggleUserView" href="../HTML/registro.html">Registrate</a></li>
+          </ul>
+        </div>
+        <!--<a class="iconNav" href="../html/registro.html"><img src="../Fotos_pagina/Usuario.png" alt="" width="35px" id="userIcon"></a>-->
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./maquillaje.html">Maquillaje</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cuidadofacial.html">Cuidado facial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./brochas.html">Brochas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./accesorios.html">Accesorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">Nosotros</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" id="searchBar" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-dark" id="searchButton" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+
+
+  <main class="container ">
+    </div>
+    <h1 class="mt-5">CREA TU CUENTA</h1>
+    <p>¡Crea tu cuenta para recibir en exclusiva nuestras ofertas, nuevos productos y más! </p>
+    <form>
+      <div class="row justify-content-around mt-5" id="Cuenta">
+        <div class="col-lg-4 col-10 form-input"><label><strong>Nombre:</strong></label>
+          <input type="text" class="form-control" placeholder="Juan" id="nombre">
+          <div class="alertRegistro" id="alertNombre" style="display: none;">El nombre no es válido</div>
+        </div>
+        <div class="col-lg-4 col-10 form-input"><label><strong>Apellido:</strong></label>
+          <input type="text" class="form-control" placeholder="Pérez" id="apellido">
+          <div class="alertRegistro" id="alertApellido" style="display: none;">El apellido no es válido</div>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-10 form-input"><label><strong>Correo:</strong></label>
+          <input type="email" class="form-control" placeholder="nombre@ejemplo.com" id="email">
+          <div class="alertRegistro" id="alertCorreo" style="display: none;">El correo electrónico no es válido</div>
+        </div>
+
+        <div class="col-lg-4 col-10 form-input"><label><strong>Teléfono:</strong></label>
+          <input type="tel" maxlength="12" class="form-control" placeholder="Formato XX-XXXX-XXXX" id="tel">
+          <div class="alertRegistro" id="alertTel" style="display: none;">Ingresa un número válido</div>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-10 form-input"><label><strong>Contraseña:</strong></label>
+          <input type="password" class="form-control" id="password" placeholder="Ingresar mínimo 6 caracteres">
+          <div class="alertRegistro" id="alertErrorPassword" style="display: none;">Mínimo 6 caracteres requeridos
+          </div>
+        </div>
+        <div class="col-lg-4 col-10 form-input"><label><strong>Confirmar contraseña:</strong></label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar contraseña">
+          <div class="alertRegistro" id="alertConfPassword" style="display: none;">Las contraseñas no coinciden </div>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-10 text-center my-5">
+          <button type="button" class="btnRegistro" id="btnRegistro">¡Regístrate ahora!</button>
+          <p class="mt-4" style="font-family: ExoSemiBold;">¿Ya tienes una cuenta? <a
+            href="./logIn.html">¡Inicia sesión!</a></p>
+        </div>
+      </div>
+      <div class="mb-5"></div>
+      </div>
+    </form>
+  </main>
+
+  <!---------------MODAL--------->
+  <div class="modal" id="ModalRegistro" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-around">
+          <h5 class="modal-title">Registro de usuario exitoso</h5>
+        </div>
+        <div class="modal-body text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p>Redirigiendo...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center text-white" style="background-color:black;">
+    <!-- Grid container -->
+    <div class="container">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <span>Síguenos en redes</span>
+        <!-- Whatsapp -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" target="_blank" title="Mándame un mensaje"
+          role="button" data-mdb-ripple-color="dark" style="padding: 0;"><img src="../Fotos_pagina/Whats.png"
+            width="40px" style="color: white;" alt=""></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/natalia_omakeup/"
+          target="_blank" title="Sígueme en Instagram" role="button" data-mdb-ripple-color="dark"
+          style="padding: 0;"><img src="../Fotos_pagina/IG.png" alt="" width="40px" height="40px"></i></a>
+        <br>
+        <br>
+        <span>Métodos de pago</span>
+        <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button" data-mdb-ripple-color="dark"
+          style="padding: 0;"><img src="../Fotos_pagina/tarjetas1.png" alt="" width="200px"></i></a>
+      </section>
+    </div>
+    <div class="text-center text-dark pb-2" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright NAOM (WebOs) - 2023. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="../js/navbar.js"></script>
+  <script type="module" src="../js/registro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

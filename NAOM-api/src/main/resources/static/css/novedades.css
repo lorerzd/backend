@@ -1,0 +1,29 @@
+.c-item{
+height: 250px ;
+}
+.c-img{
+    height: 100%;
+    object-fit: cover;
+
+}
+/* #list-items{
+    display: flex;
+} */
+
+.card{
+    border: 0;
+    
+}
+
+.card-img-top{
+    border-radius: 50%;
+}
+
+.card-title{
+    text-align: center;
+    transform: bold;
+}
+
+.card-text{
+    text-align: center;
+}

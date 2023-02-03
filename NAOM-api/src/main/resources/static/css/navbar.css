@@ -1,0 +1,122 @@
+@font-face {
+  font-family: Exo;
+  src: url(../fonts/static/Exo-Regular.ttf);
+}
+@font-face {
+  font-family: ExoBold;
+  src: url(../fonts/static/Exo-Bold.ttf);
+}
+
+@font-face {
+  font-family: ExoSemiBold;
+  src: url(../fonts/static/Exo-SemiBold.ttf);
+}
+body {
+  font-family: Exo;
+  height: 100vh;
+}
+nav {
+  background-color: #fafafa;
+  font-family: ExoSemiBold;
+}
+
+.nav-link {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 30px;
+  color: black;
+}
+
+.d-flex {
+  width: 100%;
+}
+
+#filtrarBtn:hover {
+  font-weight: 900;
+  color: #1c315e;
+  background-color: #fff;
+  border: 2px solid #efcfcf;
+  padding: 5px 11px;
+}
+
+#filtrarBtn {
+  background-color: #efcfcf;
+  font-weight: 900;
+  color: #1c315e;
+  margin-left: 10px;
+}
+
+@media (min-width: 320px) {
+  .iconNav {
+    margin: 0px 10px 0px 10px;
+  }
+  .navbar-brand img {
+    width: 100px;
+  }
+}
+
+@media (min-width: 425px) {
+  .iconNav {
+    padding: 0px 25px 0px 25px;
+  }
+  .navbar-brand img {
+    width: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .iconNav {
+    padding: 0px 45px 0px 45px;
+  }
+  .iconNav img {
+    width: 40px;
+  }
+  .navbar-brand img {
+    width: 120px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-brand {
+    margin-left: 50px;
+    margin-right: 150px;
+  }
+
+  .iconNav {
+    padding: 0px 20px 0px 20px;
+  }
+
+  #user-wrapper {
+    position: absolute;
+    margin-left: 850px;
+  }
+
+  .d-flex {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1440px) {
+  #user-wrapper {
+    position: absolute;
+    left: 75px;
+  }
+  .nav-item {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  #user-wrapper {
+    position: absolute;
+    left: 450px;
+  }
+
+  .navbar-brand {
+    margin-left: 80px;
+  }
+
+  .nav-item {
+    margin-left: 50px;
+  }
+}

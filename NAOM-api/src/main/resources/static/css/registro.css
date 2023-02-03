@@ -1,0 +1,60 @@
+@font-face {
+    font-family: Exo;
+    src: url(../fonts/static/Exo-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Exo;
+    src: url(../fonts/static/Exo-Regular.ttf);
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+h1{
+    text-align: center;
+    font-family: ExoBold;
+}
+
+.container p{
+    text-align: center;
+    font-weight: 100;
+}
+
+main .form-control {
+    border-radius: 0;
+    border: 1px black solid;
+}
+
+.btnRegistro {
+    background-color: #EFCFCF;
+    color: #1C315E;
+    border-radius: 5%;
+    border: 0;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+}
+
+.btnRegistro:hover {
+    background-color: white;
+    border: 2px solid #EFCFCF;
+    padding: 0.4rem 0.9rem;
+}
+
+
+main .form-input{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.alertRegistro {
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+}

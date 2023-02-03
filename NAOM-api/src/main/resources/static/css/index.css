@@ -1,0 +1,192 @@
+
+
+h1 {
+  font-family: ExoBold;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  border-radius: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: none;
+  width: 5vh;
+  height: 5vh;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.credits > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.products-carousel {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.products-container {
+  display: flex;
+  width: 90%;
+  padding: 10px 40px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  text-align: start;
+  font-size: 18px;
+  background: #fff;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  backface-visibility: none;
+}
+
+.card-description {
+  padding: 1rem;
+}
+
+.card-title,
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.swiper-button-next {
+  right: 26px !important;
+  margin-top: 300px;
+  color: black;
+}
+
+.swiper-button-prev {
+  left: 26px !important;
+  margin-top: 300px;
+  color: black;
+}
+
+.card-body a {
+  width: 100%;
+}
+
+.hearts-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 0;
+}
+
+.hearts-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.hearts-outer::before {
+  content: "\f004   \f004   \f004   \f004";
+  font-family: "Font Awesome 5 Free";
+  font-size: 24px;
+  font-weight: 900;
+  color: #ccc;
+}
+
+.hearts-inner::before {
+  content: "\f004   \f004   \f004   \f004";
+  font-family: "Font Awesome 5 Free";
+  font-size: 24px;
+  font-weight: 900;
+  color: #6c4ab6;
+}
+
+.addCartProd {
+  background-color: #efcfcf;
+  color: #1c315e;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  padding: 8px 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5%;
+}
+
+.addCartProd:hover {
+  color: #1c315e;
+  background-color: #fff;
+  border: 2px solid #efcfcf;
+  padding: 6px 14px;
+}
+
+.card-title {
+  color: #1c315e;
+  min-height: 108px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-price {
+  font-family: ExoBold;
+  color: #6c4ab6;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.carousel-caption {
+  background-color: rgba(22, 22, 26, 0.18);
+  height: 200px;
+  padding: 2rem 2rem;
+}
+
+.carousel-caption > p {
+  font-size: 2rem;
+}

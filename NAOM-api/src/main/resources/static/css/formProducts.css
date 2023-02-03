@@ -1,0 +1,69 @@
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+body .form-control {
+    border-radius: 0;
+    border: 1px black solid;
+}
+
+#btnProduct, #btnConfirm{
+    background-color: #EFCFCF;
+    color: #1C315E;
+    border-radius: 5%;
+    border: 0;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+#btnProduct:hover {
+    background-color: white;
+    border: 2px solid #EFCFCF;
+    padding: 6px 14px;
+}
+
+#btnProductCancel, #btnCerrar{
+    background-color: black;
+    color: #ffffff;
+    border-radius: 5%;
+    border: 0;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+#btnProductCancel:hover {
+    color: black;
+    background-color: #ffffff;
+    padding: 0.4rem 0.9rem;
+    border: 2px solid black;
+}
+
+#prevImg{
+    border-radius: 20%;
+    border: 1px black solid;
+}
+
+.row{
+    margin-right: 0;
+}
+
+.alertRegistro {
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+}
+
+
+form div {
+    margin-bottom: 2rem;
+}
+
+.crud:hover {
+    background-color: white;
+    border: 2px solid #EFCFCF;
+}
